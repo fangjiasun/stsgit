@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" th:href="@{static/bootstrap/bootstrap.css}"/>
+</head>
+<body>
+	<table class="table">
+  		<thead>
+  			<tr>
+  				<td>序号</td>
+  				<td>姓名</td>
+  				<td>性别</td>
+  				<td>生日</td>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr th:each="customer:${customers}">
+  				<td th:text="${customer.id}"></td>
+  				<td th:text="${customer.name}"></td>
+  				<td th:if="${customer.sex} == 1">男</td>
+  				<td th:if="${customer.sex} == 0">女</td>
+  				<td th:text="${#dates.format(customer.birthday,'yyyy-MM-dd')}"></td>
+  			</tr>
+  		</tbody>
+	</table>
+</body>
+</html>
